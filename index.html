@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE EXPLICT - OT RECORDS</title>
+
+    <!-- SEO & Artist Optimization -->
+    <meta name="description" content="THE EXPLICT - Late-night music from OT RECORDS. Raw emotions, sleepless nights, and the kind of love that leaves marks.">
+    <meta name="author" content="THE EXPLICT">
+    <meta name="keywords" content="THE EXPLICT, The Explict, Explict, OT RECORDS, dark pop, late night music, emotional music, alternative r&b, sleepless music, raw emotion music">
+
+    <!-- Open Graph (kept minimal & safe) -->
+    <meta property="og:title" content="THE EXPLICT - OT RECORDS">
+    <meta property="og:description" content="Memories that never learned to stay quiet.">
+    <meta property="og:type" content="music.artist">
+    <meta property="og:url" content="https://theexplict.ot/">
+
+    <!-- Structured Data - Music Artist (only Spotify + Apple) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "THE EXPLICT",
+      "url": "https://theexplict.ot/",
+      "description": "Late-night music shaped by darkness, craving, and the kind of love that leaves marks.",
+      "genre": "Dark Pop / Alternative R&B",
+      "sameAs": [
+        "https://open.spotify.com/artist/5yUdejiA9jL3Fu8T4P7Cz6",
+        "https://music.apple.com/us/artist/the-explict/1852131565"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "THE EXPLICT",
+      "url": "https://theexplict.ot/"
+    }
+    </script>
+
+    <!-- Tailwind + Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto+Mono:wght@100..700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Roboto Mono', 'Inter', monospace; }
+
+        @keyframes scanline { 0% { transform: translateY(0); } 100% { transform: translateY(100vh); } }
+        @keyframes flicker { 0%,19.999%,22%,62.999%,64%,64.999%,70%,100%{opacity:1} 20%,21.999%,63%,63.999%,65%,69.999%{opacity:0.5} }
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        @keyframes pulse-glow { 0%,100%{opacity:0.3;transform:scale(1) translate(-50%,-50%)} 50%{opacity:0.6;transform:scale(1.2) translate(-50%,-50%)} }
+        @keyframes shadow-glitch {
+            0%,100%{text-shadow:1px 1px 0 rgba(255,0,0,0.4),-1px -1px 0 rgba(0,255,255,0.4)}
+            5%{text-shadow:-3px 0 0 rgba(255,0,0,0.6),3px 0 0 rgba(0,255,255,0.6)}
+            15%{text-shadow:4px -4px 0 rgba(255,0,0,0.3),-4px 4px 0 rgba(0,255,255,0.3)}
+            20%{text-shadow:none}
+        }
+
+        .animate-scanline { animation: scanline 10s linear infinite; background: linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0) 50%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2)); background-size: 100% 4px; position: absolute; top: -100vh; left: 0; width: 100%; height: 200vh; pointer-events: none; z-index: 55; }
+        .animate-flicker-slow { animation: flicker 4s linear infinite; }
+        .animate-pulse-glow { animation: pulse-glow 5s ease-in-out infinite; }
+        .animate-marquee-slow { animation: marquee 25s linear infinite; white-space: nowrap; }
+        .animate-shadow-glitch { animation: shadow-glitch 10s steps(10,end) infinite; }
+        ::selection { background:#7f1d1d; color:white; }
+    </style>
+</head>
+<body class="min-h-screen bg-black text-white font-mono overflow-x-hidden">
+
+    <div id="app-container" class="relative min-h-screen" onmousemove="handleMouseMove(event)">
+        
+        <!-- Background Effects -->
+        <div class="fixed inset-0 opacity-[0.09] pointer-events-none z-50" 
+             style="background-image:url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E')"></div>
+
+        <div class="fixed inset-0 pointer-events-none z-50 overflow-hidden opacity-30">
+            <div class="animate-scanline"></div>
+        </div>
+        
+        <div id="mouse-glow" class="fixed w-[600px] h-[600px] bg-red-900 rounded-full blur-[120px] opacity-15 pointer-events-none z-0 transition-transform duration-200 ease-out"
+             style="left:50%;top:50%;transform:translate(-50%,-50%)"></div>
+
+        <div class="fixed inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.85)_100%)] pointer-events-none z-10"></div>
+
+        <!-- Main Content -->
+        <main class="relative z-20 flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-6 py-16">
+            
+            <!-- PHASE 1 -->
+            <section class="min-h-[85vh] flex flex-col justify-center items-center text-center space-y-8 border-b border-neutral-900 w-full pb-24 relative">
+                <div class="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-red-500/20 rounded-full blur-[100px] pointer-events-none animate-pulse-glow"
+                     style="transform:translate(-50%,-50%)"></div>
+
+                <div class="animate-pulse text-red-600 text-xs tracking-[0.4em] uppercase font-bold mb-4">
+                    // 03:00 AM // SLEEPLESS
+                </div>
+                
+                <h1 class="text-5xl md:text-8xl font-black tracking-tighter text-white mix-blend-difference mb-2 animate-flicker-slow relative z-10">
+                    THE EXPLICT
+                </h1>
+                
+                <div class="max-w-xl mx-auto mt-12 space-y-8">
+                    <p class="text-neutral-300 text-lg md:text-xl leading-relaxed font-light">
+                        <span class="text-red-500 font-bold block text-xs tracking-widest mb-3 uppercase">The Diagnosis</span>
+                        These songs come from nights that went too far and feelings that got too heavy.
+                    </p>
+                    <p class="text-neutral-500 text-base md:text-lg leading-relaxed font-light italic">
+                        "Memories that never learned to stay quiet."
+                    </p>
+                </div>
+
+                <div class="mt-16 opacity-50 hover:opacity-100 transition-opacity duration-500">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-neutral-500 animate-bounce">
+                        <path d="M7 13L12 18L17 13M7 6L12 11L17 6" stroke-linecap="square"/>
+                    </svg>
+                </div>
+            </section>
+
+            <!-- PHASE 2 -->
+            <section class="min-h-[70vh] flex flex-col justify-center items-center text-center w-full py-24 border-b border-neutral-900">
+                <div class="space-y-10 max-w-2xl relative">
+                    <div class="absolute -left-8 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-red-900 to-transparent opacity-40 md:block hidden"></div>
+                    <h2 class="text-sm font-mono text-neutral-500 tracking-[0.3em] uppercase">The Remedy</h2>
+                    <h3 class="text-2xl md:text-4xl font-bold tracking-tight text-neutral-200 leading-snug">
+                        The late hours voice shaped by darkness, craving, and the kind of love that leaves marks.
+                    </h3>
+                    <div class="flex flex-col gap-6 text-neutral-400 text-lg font-light leading-relaxed">
+                        <p>It's the sound of blurred relationships and emotions that hit harder when the lights are low.</p>
+                        <p>Every track is pulled from the same place: the tension, the addiction, 
+                           and the <span class="text-white border-b border-red-900">softness that turns sharp</span> when you get too close.
+                        </p>
+                    </div>
+                    <div class="p-6 border-l-2 border-red-900/50 bg-neutral-900/30 backdrop-blur-sm mt-12 text-left">
+                        <p class="text-red-500 font-mono text-xs tracking-widest mb-2 uppercase">Mission Statement</p>
+                        <p class="text-white font-serif italic text-xl tracking-wide">
+                            "Just the real, messy side of love and the quiet damage it leaves behind."
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHASE 3 -->
+            <section class="min-h-[60vh] flex flex-col justify-center items-center text-center w-full py-24">
+                <div class="mb-16">
+                    <h2 class="text-xs font-mono text-red-600 tracking-[0.3em] uppercase mb-4 animate-pulse">
+                        Phase 3: Connection
+                    </h2>
+                    <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                        WHERE THE NIGHT DOES THE TALKING.
+                    </h3>
+                    <p class="text-neutral-500 text-sm tracking-wider uppercase">Listen closely.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mb-20">
+                    <!-- Spotify -->
+                    <a href="https://open.spotify.com/artist/5yUdejiA9jL3Fu8T4P7Cz6" target="_blank" rel="noreferrer"
+                       class="group relative flex items-center justify-between p-8 bg-neutral-900/50 border border-neutral-800 hover:border-[#1DB954] transition-all duration-500 overflow-hidden">
+                      <div class="absolute inset-0 bg-[#1DB954] opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                      <div class="flex items-center gap-5 z-10">
+                        <svg class="w-10 h-10 text-[#1DB954] group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 4.32-1.38 9.841-.719 13.44 1.56.541.3.66.96.301 1.261zm.12-3.36C15.54 8.46 9.06 8.22 5.28 9.361c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.24.48-.96.66-1.44.36z"/>
+                        </svg>
+                        <div class="text-left">
+                          <span class="block text-[10px] text-neutral-500 uppercase tracking-widest mb-1">Enter The Void</span>
+                          <span class="text-2xl font-bold text-white tracking-wide group-hover:text-[#1DB954] transition-colors">SPOTIFY</span>
+                        </div>
+                      </div>
+                      <svg class="w-6 h-6 text-neutral-700 group-hover:text-white group-hover:translate-x-2 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+
+                    <!-- Apple Music -->
+                    <a href="https://music.apple.com/us/artist/the-explict/1852131565" target="_blank" rel="noreferrer"
+                       class="group relative flex items-center justify-between p-8 bg-neutral-900/50 border border-neutral-800 hover:border-[#FA243C] transition-all duration-500 overflow-hidden">
+                      <div class="absolute inset-0 bg-[#FA243C] opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                      <div class="flex items-center gap-5 z-10">
+                        <svg class="w-10 h-10 text-[#FA243C] group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+                           <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.21-.93 3.23-.93.63 0 2.45.04 3.59 1.39-2.98 1.34-2.43 5.13.54 6.32-.71 1.73-1.33 3.13-2.44 5.45zM15.42 2.29c-.3.8-.75 1.73-1.33 2.66-.46-.07-.9-.12-1.3-.12-.7 0-1.6.43-2.1.84.45-1.07.97-2.14 1.45-3.07 1.1-.38 2.28-.31 3.28-.31z"/>
+                        </svg>
+                        <div class="text-left">
+                          <span class="block text-[10px] text-neutral-500 uppercase tracking-widest mb-1">Enter The Void</span>
+                          <span class="text-2xl font-bold text-white tracking-wide group-hover:text-[#FA243C] transition-colors">APPLE MUSIC</span>
+                        </div>
+                      </div>
+                      <svg class="w-6 h-6 text-neutral-700 group-hover:text-white group-hover:translate-x-2 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+
+                <!-- WARNING -->
+                <div class="w-full max-w-4xl pt-16 mt-12 mb-12 border-t border-neutral-800 text-center">
+                    <h4 class="text-sm md:text-xl font-bold text-red-700 tracking-[0.3em] uppercase mb-8">
+                        WARNING: INVENTORY IS FINITE
+                    </h4>
+                    <p class="text-3xl md:text-5xl font-extrabold tracking-tighter leading-snug text-white animate-shadow-glitch">
+                        THE ARTIST IS NOT<br>RESPONSIBLE FOR<br>LOST SLEEP OR BROKEN<br>PROMISES.
+                    </p>
+                    <p class="text-neutral-500 text-sm mt-12 tracking-wide font-light">
+                        We don't forget easily. Neither should you.
+                    </p>
+                </div>
+
+                <p class="text-neutral-700 text-[10px] mt-12 tracking-[0.2em] uppercase">
+                    OT THE EXPLICT RECORDS // 2025 // NO EXIT
+                </p>
+            </section>
+        </main>
+
+        <!-- Bottom Marquee -->
+        <div class="fixed bottom-0 left-0 w-full bg-black border-t border-neutral-900 py-2 overflow-hidden z-50 pointer-events-none opacity-60">
+            <div class="animate-marquee-slow text-[10px] tracking-[0.5em] uppercase text-neutral-500">
+               <span class="mx-8">OT THE EXPLICT RECORDS</span>
+               <span class="mx-8">//</span>
+               <span class="mx-8">Where the night does the talking</span>
+               <span class="mx-8">//</span>
+               <span class="mx-8">Memories that never learned to stay quiet</span>
+               <span class="mx-8">//</span>
+               <span class="mx-8">No Exit</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mouseGlow = document.getElementById('mouse-glow');
+        function handleMouseMove(e) {
+            if (!mouseGlow) return;
+            const w = window.innerWidth, h = window.innerHeight;
+            const x = (e.clientX / w) * 2 - 1;
+            const y = (e.clientY / h) * 2 - 1;
+            const offsetX = x * 30;
+            const offsetY = y * 30;
+            mouseGlow.style.transform = `translate(calc(-50% + \( {offsetX}px), calc(-50% + \){offsetY}px))`;
+        }
+        document.addEventListener('touchstart', e => e.touches.length && handleMouseMove(e.touches[0]));
+        document.addEventListener('touchmove',  e => e.touches.length && handleMouseMove(e.touches[0]));
+    </script>
+</body>
+</html>
