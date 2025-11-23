@@ -9,7 +9,12 @@
     <meta name="description" content="THE EXPLICT - Late-night music from OT RECORDS. Raw emotions, sleepless nights, and the kind of love that leaves marks.">
     <meta name="author" content="THE EXPLICT">
     <meta name="keywords" content="THE EXPLICT, The Explict, Explict, OT RECORDS, dark pop, late night music, emotional music, alternative r&b, sleepless music, raw emotion music">
-
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.onkeydown = e => {
+  if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 83))) return false;
+};
+</script>
     <!-- Open Graph (kept minimal & safe) -->
     <meta property="og:title" content="THE EXPLICT - OT RECORDS">
     <meta property="og:description" content="Memories that never learned to stay quiet.">
@@ -37,7 +42,7 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "THE EXPLICT",
-      "url": "https://theexplict.ot/"
+      "url": "https://theexplict.ot"
     }
     </script>
 
